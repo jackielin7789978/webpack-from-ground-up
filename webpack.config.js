@@ -1,4 +1,5 @@
 const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
 	mode: 'development', // 開發模式，不壓縮打包檔案
@@ -57,4 +58,5 @@ module.exports = {
 			},
 		],
 	},
+	plugins: [new CleanWebpackPlugin()],
 }

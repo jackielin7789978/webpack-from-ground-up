@@ -1,12 +1,15 @@
-### 打包圖片、字體等其他資源
+### 使用常見 Webpack Plugins
 
-學會打包 css 檔後，接著來看如何讓 webpack 打包其他資源。
+除了 Loaders 以外，Webpack 的另一個核心功能就是 Plugins。
+這邊會安裝兩個常見的插件 - [clean-webpack-plugin](https://www.npmjs.com/package/clean-webpack-plugin) 和 [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/)。
 
-### Webpack 5 - [Asset Modules](https://webpack.js.org/guides/asset-modules/#root)
+#### clean-webpack-plugin
 
-Webpack 4 以前，處理圖片或字體的資源也需要使用對應的 loaders；不過在 Webpack 5 以後，這些都可以由 Webpack 原生支援，只要將檔案設定成對應的 module type 即可。實際設定請看 `webpack.config.js`。
+這個做的事情比較簡單，就是在每次打包之前，幫我們先刪掉前一個打包好的 dist 資料夾。
 
-#### 專案使用字體
+#### html-webpack-plugin
 
--   [台北黑體](https://sites.google.com/view/jtfoundry/zh-tw)
--   [源泉圓體](https://github.com/ButTaiwan/gensen-font)
+顧名思義，這個插件負責處理 html 相關功能，它可以幫我們自動生成 html 並引入打包好的 js 檔。
+另外，我們也可以使用自訂模板來生成 html。
+
+安裝完成後，相關設定一樣參考 `webpack.config.js`
