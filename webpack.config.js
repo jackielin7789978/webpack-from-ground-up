@@ -1,5 +1,6 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
 	mode: 'development', // 開發模式，不壓縮打包檔案
@@ -58,5 +59,11 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [new CleanWebpackPlugin()],
+	plugins: [
+		new CleanWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			title: 'Webpack Plugins', //自訂 html title
+			template: 'index.html', //指定模板
+		}),
+	], //插件通常會 export 出一個 class，在這邊 new 一個新的實例出來就可以使用
 }
