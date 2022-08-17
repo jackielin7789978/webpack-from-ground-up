@@ -1,4 +1,0 @@
-這是我手動在 dist 加入的文字檔
-src 中並沒有這個檔案
-裝好 clean-webpack-plugin 後試著重新打包看看
-這個檔案會被清除 證明 webpack 在打包前有先幫我們清除舊的 dist 資料夾

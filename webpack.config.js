@@ -57,6 +57,17 @@ module.exports = {
 					filename: 'font/[name]_[hash:6][ext]', // 命名規則
 				},
 			},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'babel-loader', // 使用 babel
+					// 這整塊 options 可以另外寫成 .babel.config.js，設定很多的時候可以考慮獨立出去
+					options: {
+						presets: ['@babel/preset-env'], // 指定預設 (類似插件集)，裡面包含所有常見的 JS 語法轉換插件
+					},
+				},
+			},
 		],
 	},
 	plugins: [

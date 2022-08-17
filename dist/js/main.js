@@ -10,6 +10,26 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/elements */ \"./src/js/elements.js\");\n //必須在入口處引入用到的檔案，webpack 才會把它納入打包依賴中\n// 寫一些 ES6 語法給 Babel 轉譯\n\nvar message = 'hello Babel';\n\nvar greeting = function greeting(msg) {\n  return console.log(msg);\n};\n\ngreeting(message);\n\n//# sourceURL=webpack://vue3-webpack-practice/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/js/elements.js":
+/*!****************************!*\
+  !*** ./src/js/elements.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/style.css */ \"./src/css/style.css\");\n/* harmony import */ var _css_button_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/button.scss */ \"./src/css/button.scss\");\n// 用 JS 寫一些 DOM 元素\n // 引入 css 檔\n\n // 引入 scss 檔\n\nvar title = document.createElement('h1');\ntitle.innerText = '我是台北黑體，我好看嗎'; //測試一下剛才引入的中文字型\n\ntitle.className = 'title';\nvar title2 = document.createElement('h2');\ntitle2.innerHTML = '我是源泉圓體，我真可愛'; //測試另一種字型\n\ntitle2.className = 'title2';\nvar button = document.createElement('button');\nbutton.innerText = '按一下';\ndocument.body.appendChild(title);\ndocument.body.appendChild(title2);\ndocument.body.append(button);\n\n//# sourceURL=webpack://vue3-webpack-practice/./src/js/elements.js?");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./src/css/style.css":
 /*!***************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./src/css/style.css ***!
@@ -137,26 +157,6 @@ eval("\n\n/* istanbul ignore next  */\nfunction apply(styleElement, options, obj
 /***/ ((module) => {
 
 eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElement) {\n  if (styleElement.styleSheet) {\n    styleElement.styleSheet.cssText = css;\n  } else {\n    while (styleElement.firstChild) {\n      styleElement.removeChild(styleElement.firstChild);\n    }\n\n    styleElement.appendChild(document.createTextNode(css));\n  }\n}\n\nmodule.exports = styleTagTransform;\n\n//# sourceURL=webpack://vue3-webpack-practice/./node_modules/style-loader/dist/runtime/styleTagTransform.js?");
-
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/elements */ \"./src/js/elements.js\");\n //必須在入口處引入用到的檔案，webpack 才會把它納入打包依賴中\r\n\n\n//# sourceURL=webpack://vue3-webpack-practice/./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/js/elements.js":
-/*!****************************!*\
-  !*** ./src/js/elements.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/style.css */ \"./src/css/style.css\");\n/* harmony import */ var _css_button_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/button.scss */ \"./src/css/button.scss\");\n// 用 JS 寫一些 DOM 元素\r\n // 引入 css 檔\r\n // 引入 scss 檔\r\n\r\nconst title = document.createElement('h1')\r\ntitle.innerText = '我是台北黑體，我好看嗎' //測試一下剛才引入的中文字型\r\ntitle.className = 'title'\r\n\r\nconst title2 = document.createElement('h2')\r\ntitle2.innerHTML = '我是源泉圓體，我真可愛' //測試另一種字型\r\ntitle2.className = 'title2'\r\n\r\nconst button = document.createElement('button')\r\nbutton.innerText = '按一下'\r\n\r\ndocument.body.appendChild(title)\r\ndocument.body.appendChild(title2)\r\ndocument.body.append(button)\r\n\n\n//# sourceURL=webpack://vue3-webpack-practice/./src/js/elements.js?");
 
 /***/ }),
 
