@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+	mode: 'development', // 開發模式，不壓縮打包檔案
 	entry: './src/index.js', // 指定 webpack 打包入口點
 	output: {
 		filename: 'js/main.js', // 指定打包後的檔名
@@ -11,7 +12,34 @@ module.exports = {
 		rules: [
 			{
 				test: /\.css$/i, // 正則表達式指定匹配檔案
-				use: ['style-loader', 'css-loader'], // 由後往前執行。先執行負責解析 css 的 'css-laoder'，再執行負責把樣式掛到 DOM 上的 'style-loader'
+				use: [
+					'style-loader',
+					'css-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							postcssOptions: {
+								plugins: ['postcss-preset-env'],
+							},
+						},
+					},
+				], // 由後往前執行。
+			},
+			{
+				test: /\.s[ac]ss$/i, //目標檔案 .sass or .scss
+				use: [
+					'style-loader',
+					'css-loader',
+					'sass-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							postcssOptions: {
+								plugins: ['postcss-preset-env'],
+							},
+						},
+					},
+				],
 			},
 		],
 	},

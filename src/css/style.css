@@ -4,4 +4,5 @@ body {
 
 .title {
 	color: rgb(10, 41, 72);
+	user-select: none; // postcss 的 postcss-preset-env 會幫我們加上瀏覽器前綴
 }
