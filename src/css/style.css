@@ -15,9 +15,12 @@
 body {
 	background: url('../imgs/camping.jpg');
 	background-size: cover;
+	font-family: 'Gen Sen Rounded';
+	font-weight: 700;
+	color: #fff;
 }
 
-.title {
+/* .title {
 	color: #fff;
 	font-size: 38px;
 	user-select: none;
@@ -30,4 +33,4 @@ body {
 	font-size: 38px;
 	font-family: 'Gen Sen Rounded';
 	font-weight: 700;
-}
+} */

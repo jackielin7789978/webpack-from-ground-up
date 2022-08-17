@@ -1,16 +1,25 @@
-### 加入 [Babel](https://babeljs.io/)
+### 加入 Vue
 
-前面寫的所有程式碼，打包出來後有可能無法在某些瀏覽器中執行，這是因為我們還沒使用 Babel 幫我們進行轉譯。
-現代前端開發非常依賴 Babel，它可以幫我們把 ES6, 7, 8 或更新的 JS 語法轉成 ES5 語法，讓比較舊的瀏覽器也能夠執行。
-TypeScript、React 中使用的 jsx 語法等，瀏覽器其實也都是不認得的，都需要經過 Babel 處理。
+平常開發 Vue 專案都是用 vue cli 或現在的 vite cli，自動架好一個專案，但其實自己架一個 webpack + vue 專案也不會很難。
+這個分支會用最簡易的方式使用 Vue，下一個分支才會使用 SFC (Single File Component) 來開發。
+`npm install vue@next`
 
-### [Babel Loader](https://webpack.js.org/loaders/babel-loader/#root)
+### 補充知識：你知道 Vue 有幾個版本嗎？
 
-要在 Webpack 專案中使用 babel，需要安裝對應的 babel-loader。
-除了 loader 之外，babel 核心程式碼和轉譯需要用到的 preset 也要一併安裝。
-`npm install -D babel-loader @babel/core @babel/preset-env`
-安裝後設定一樣參考 `webpack.config.js`
+點開 /node_modules/vue/dist，你會看到裡面打包出好幾種不同版本的 vue，這邊簡單介紹一下他們的不同。
 
-### 應用
+`vue.global.js` → CDN 引入的版本，會導出一個全域的 `Vue`
+`vue.esm-browser.js` → 在瀏覽器用 `<script type=”module”>` 使用，會透過原生 ES module 導入
+`vue.esm-bundler.js` → 在打包工具中使用
+`vue.cjs.js` → server 端渲染使用 (node.js)
+加上 `runtime` → 使用 runtime 版本，沒有 compiler
+加上 `prod` → 使用 production 壓縮版本
 
-在 /src/index.js 中寫一個 ES6 的箭頭函式，打包後 (經過 babel 轉譯)，去 /dist/js/main.js 搜尋這個函式，會發現箭頭函式被轉成 ES5 語法。
+**webpack 預設使用 `vue.runtime.esm-bundler.js` (SFC 開發時使用)**
+因此，在沒有進行額外設定之下，要指定使用 `vue.esm-bundler.js` ，才能 compile 元件 template
+
+### Feature flags Warning？
+
+成功打包後，在瀏覽器開啟 devtools 應該會看到一個 feature flags 警告。解決方法可以看[這裡的說明](https://github.com/vuejs/core/tree/main/packages/vue#bundler-build-feature-flags)。
+簡單來說，這是因為我們指定使用 `vue.esm-bundler.js` 這個版本，所以需要一些額外設定，Vue 才能正常執行 tree-shaking。
+以 Webpack 來說，可以透過內建的 `DefinePlugin` 來設定 (見 `webpack.config.js`)
