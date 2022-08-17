@@ -41,6 +41,20 @@ module.exports = {
 					},
 				],
 			},
+			{
+				test: /\.(jpg|png|svg)$/i,
+				type: 'asset', // 指定 module 類型 (webpack 5)，取代 webpack 4 以前的 'url-loader'
+				generator: {
+					filename: 'imgs/[name]_[hash:4][ext]',
+				},
+			},
+			{
+				test: /\.(eot|ttf|ttc|woff2?)$/, //常見字體檔案
+				type: 'asset/resource', // 指定 module 類型 (webpack 5)，對應 'file-loader'
+				generator: {
+					filename: 'font/[name]_[hash:6][ext]', // 命名規則
+				},
+			},
 		],
 	},
 }

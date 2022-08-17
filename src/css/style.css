@@ -1,8 +1,33 @@
+/* 加入字體 */
+@font-face {
+	font-family: 'Taipei Sans TC';
+	src: url('../fonts/TaipeiSansTCBeta-Regular.ttf'),
+		url('../fonts/TaipeiSansTCBeta-Bold.ttf');
+}
+@font-face {
+	font-family: 'Gen Sen Rounded';
+	src: url('../fonts/GenSenRounded-B.ttc'),
+		url('../fonts/GenSenRounded-M.ttc'), url('../fonts/GenSenRounded-R.ttc'),
+		url('../fonts/GenSenRounded-L.ttc'),
+		url('../fonts//GenSenRounded-EL.ttc');
+}
+
 body {
-	background: rgba(200, 210, 220, 0.7);
+	background: url('../imgs/camping.jpg');
+	background-size: cover;
 }
 
 .title {
-	color: rgb(10, 41, 72);
-	user-select: none; // postcss 的 postcss-preset-env 會幫我們加上瀏覽器前綴
+	color: #fff;
+	font-size: 38px;
+	user-select: none;
+	font-weight: 400;
+	font-family: 'Taipei Sans TC';
+}
+
+.title2 {
+	color: #fff;
+	font-size: 38px;
+	font-family: 'Gen Sen Rounded';
+	font-weight: 700;
 }
