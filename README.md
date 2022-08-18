@@ -4,7 +4,7 @@
 
 ### Webpack 5 - [Asset Modules](https://webpack.js.org/guides/asset-modules/#root)
 
-Webpack 4 以前，處理圖片或字體的資源也需要使用對應的 loaders；不過在 Webpack 5 以後，這些都可以由 Webpack 原生支援，只要將檔案設定成對應的 module type 即可。實際設定請看 `webpack.config.js`。
+Webpack 4 以前，處理圖片或字體的資源也需要使用對應的 loaders；不過在 Webpack 5 以後，這些都可以由 Webpack 原生支援，只要將檔案設定成對應的 module type 即可。實際設定請看 [webpack.config.js](https://github.com/jackielin7789978/webpack-from-ground-up/blob/04_asset_modules/webpack.config.js)。
 
 #### 專案使用字體
 
