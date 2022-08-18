@@ -9,7 +9,7 @@
  ]
 ```
 
-接下來在 terminal 執行 `npm run build` ，webpack 會預設在 `src` 資料夾之下找到 `index.js`，執行打包後將檔案輸出到 `dist` 資料夾中。
+接下來在 terminal 執行 `npm run build` ，webpack 預設會在 `src` 資料夾之下找到 `index.js` 作為打包的 entry point，並將所有在 entry point 中引入的資源加進 dependency tree 執行打包，最後將打包後的檔案輸出到 `dist` 資料夾中。
 
 ### [webpack.config.js](https://github.com/jackielin7789978/webpack-from-ground-up/blob/01_add_webpack/webpack.config.js)
 所有 webpack 相關設定都會寫在這個檔案裡面，譬如指定不同的 entry point 和檔案輸出位置等等。
