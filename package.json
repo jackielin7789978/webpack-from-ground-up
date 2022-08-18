@@ -4,8 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "webpack serve --open",
-		"build": "webpack"
+		"dev": "webpack serve --open --config ./config/webpack.dev.config.js --config ./config/webpack.comm.config.js --merge",
+		"build": "webpack --config ./config/webpack.prod.config.js --config ./config/webpack.comm.config.js --merge"
 	},
 	"keywords": [],
 	"author": "",
