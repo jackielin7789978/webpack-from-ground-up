@@ -12,6 +12,12 @@ module.exports = {
 		filename: 'js/main.js', // 指定打包後的檔名
 		path: path.resolve(__dirname, 'dist'), // 因為這邊必須寫絕對路徑，所以通常會借助於 node 的 path.resolve 來拼接路徑 (__dirname 是目前路徑)
 	},
+	resolve: {
+		alias: {
+			'@': path.resolve(__dirname, 'src'), // 設定路徑別名
+		},
+		extensions: ['.js', '.json', '.wasm', '.vue'], // 這邊的檔案類型引入時不必寫副檔名
+	},
 	module: {
 		// loader 設定都寫在這
 		rules: [
