@@ -12,3 +12,5 @@ Webpack Dev Server 主要做兩件事：
 
 1. 用 node express 起一個 local server
 2. 透過 memfs 這個 library，把打包後的檔案留在內存，提升更新效率
+
+`npm install -D webpack-dev-server`
