@@ -12,4 +12,4 @@
 顧名思義，這個插件負責處理 html 相關功能，它可以幫我們自動生成 html 並引入打包好的 js 檔。
 另外，我們也可以使用自訂模板來生成 html。這個插件能做的設定蠻多的，可以參考 [GitHub 文件](https://github.com/jantimon/html-webpack-plugin#options)。
 
-安裝完成後，相關設定一樣參考 `webpack.config.js`
+安裝完成後，相關設定一樣參考 [webpack.config.js](https://github.com/jackielin7789978/webpack-from-ground-up/blob/05_plugins/webpack.config.js)
