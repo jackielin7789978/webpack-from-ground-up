@@ -1,0 +1,52 @@
+/* 加入字體 */
+@font-face {
+	font-family: 'Taipei Sans TC';
+	src: url('../fonts/TaipeiSansTCBeta-Regular.ttf');
+	font-weight: normal;
+}
+@font-face {
+	font-family: 'Taipei Sans TC';
+	src: url('../fonts/TaipeiSansTCBeta-Bold.ttf');
+	font-weight: bold;
+}
+@font-face {
+	font-family: 'Gen Sen Rounded';
+	src: url('../fonts/GenSenRounded-B.ttc');
+	font-weight: bold;
+}
+@font-face {
+	font-family: 'Gen Sen Rounded';
+	src: url('../fonts/GenSenRounded-R.ttc');
+	font-weight: normal;
+}
+
+body {
+	background: url('../imgs/camping.jpg');
+	background-size: cover;
+	font-family: 'Gen Sen Rounded';
+	font-weight: 700;
+	color: #fff;
+}
+
+h1 {
+	font-size: 48px;
+	text-align: center;
+}
+p {
+	text-align: center;
+}
+
+/* .title {
+	color: #fff;
+	font-size: 38px;
+	user-select: none;
+	font-weight: 400;
+	font-family: 'Taipei Sans TC';
+}
+
+.title2 {
+	color: #fff;
+	font-size: 38px;
+	font-family: 'Gen Sen Rounded';
+	font-weight: 700;
+} */
