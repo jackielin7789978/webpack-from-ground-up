@@ -2,6 +2,7 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack') // 引入 webpack 內建的方法
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
 	mode: 'development', // 開發模式，不壓縮打包檔案
@@ -78,8 +79,17 @@ module.exports = {
 			template: 'index.html', //指定模板
 		}),
 		new DefinePlugin({
+			BASE_URL: "'./'", // 填充到 ejs html 模板中
 			__VUE_OPTIONS_API__: true, //根據 devtools 報的 feature flag 警告，加上這兩個設定
 			__VUE_PROD_DEVTOOLS__: false,
+		}),
+		new CopyPlugin({
+			patterns: [
+				{
+					from: 'public',
+					to: 'public',
+				},
+			],
 		}),
 	], //插件通常會 export 出一個 class，在這邊 new 一個新的實例出來就可以使用
 }

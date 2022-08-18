@@ -1,14 +1,20 @@
-### Hot Module Reload
+### Public 資料夾
 
-為了提升開發效率，通常我們不會每改一次程式碼就重新 `npm run build`，而是透過模組熱更新 (HMR) 功能來監聽程式碼，並自動將更新的模組重新打包後渲染出來。
-Webpack Dev Server 就是用來實現 HMR 的工具。
+平常用 vue cli 建專案的時候，除了 `src` 資料夾還會有一個 `public` 資料夾，裡面存放不須被打包的靜態資源，譬如 favicon (瀏覽器分頁上的小小 icon)。
+這個 favicon 是在模板 html 中引入的，沒有被 `src/index.js` 或其他依賴圖中的檔案引入，因此不會被 webpack 打包，也就代表它不會被輸出到 `dist` 資料夾，也不會被 devServer 保存在內存中。
 
-### Webpack Dev Server
+### 用 CopyWebpackPlugin 複製靜態資源
 
-Webpack 的 watch mode 提供監聽程式碼並重新打包的功能，但無法做到瀏覽器的 live reload (live reload 是 vscode 的 live server 幫我們做的)。
-而 Webpack Dev Server 可以同時做到這兩件事情。
+[CopyWebpackPlugin](https://webpack.js.org/plugins/copy-webpack-plugin/#root) 可以將指定檔案/資料夾複製到打包資料夾中。
 
-Webpack Dev Server 主要做兩件事：
+同樣需要先安裝 `npm install -D copy-webpack-plugin`
 
-1. 用 node express 起一個 local server
-2. 透過 memfs 這個 library，把打包後的檔案留在內存，提升更新效率
+接著在 webpack.config.js 中指定複製 `public` 資料夾就可以了
+
+### Webpack Dev Server 如何存取靜態資源
+
+如同前面介紹過的，devServer 不會輸出打包後的檔案，而是將檔案暫時保留在內存中，那它怎麼知道要去哪裡找靜態資源呢？
+
+根據[官方文件](https://webpack.js.org/configuration/dev-server/#devserverstatic)，devServer 有一個 `static` 設定，可以指定伺服器要去哪裡取得靜態資源。
+devServer 預設會到 `public` 資料夾存取靜態資源，要注意的是這裡的 `public` 資料夾並不是我們現在資料夾中的那一個，而是打包後的 `public` 資料夾。
+所以如果我們的靜態資源並不是指定複製到 `public` 資料夾，這邊就要同時修改一下設定。
