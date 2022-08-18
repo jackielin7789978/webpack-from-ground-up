@@ -3,9 +3,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack') // 引入 webpack 內建的方法
 const CopyPlugin = require('copy-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
-	// mode: 'development', // 開發模式，不壓縮打包檔案
+	mode: 'development', // 開發模式，不壓縮打包檔案
 	entry: './src/index.js', // 指定 webpack 打包入口點
 	output: {
 		filename: 'js/main.js', // 指定打包後的檔名
@@ -70,6 +71,10 @@ module.exports = {
 					},
 				},
 			},
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader',
+			},
 		],
 	},
 	plugins: [
@@ -91,5 +96,6 @@ module.exports = {
 				},
 			],
 		}),
+		new VueLoaderPlugin(),
 	], //插件通常會 export 出一個 class，在這邊 new 一個新的實例出來就可以使用
 }

@@ -1,20 +1,13 @@
-### Public 資料夾
+### 現代化 Vue 開發 - Single File Component
 
-平常用 vue cli 建專案的時候，除了 `src` 資料夾還會有一個 `public` 資料夾，裡面存放不須被打包的靜態資源，譬如 favicon (瀏覽器分頁上的小小 icon)。
-這個 favicon 是在模板 html 中引入的，沒有被 `src/index.js` 或其他依賴圖中的檔案引入，因此不會被 webpack 打包，也就代表它不會被輸出到 `dist` 資料夾，也不會被 devServer 保存在內存中。
+雖然我們已經幫專案加入 vue，但仍是採用直接在根元件寫 options 的方式開發，而現實生活中多半不會用這種方式開發。通常我們會寫 `.vue` 檔案，也就是常聽到的 SFC (Single File Component)，`.vue` 檔讓我們可以在同一個檔案中寫單一元件的 template, script 和 style。
 
-### 用 CopyWebpackPlugin 複製靜態資源
+### Vue Loader
 
-[CopyWebpackPlugin](https://webpack.js.org/plugins/copy-webpack-plugin/#root) 可以將指定檔案/資料夾複製到打包資料夾中。
+同樣地，原生 Webpack 也看不懂 `.vue` 檔案，需要使用 [vue-loader](https://vue-loader.vuejs.org/guide/#vue-cli) 來載入。官方文件中安裝的 `vue-template-compiler` 是 Vue 2 的套件，負責編譯 template，Vue 3 是用 @vue/compiler-sfc 這個套件來取代，而且安裝 Vue 3 的時候也已經安裝好了，所以這裡只需要單純安裝 `vue-loader`。
 
-同樣需要先安裝 `npm install -D copy-webpack-plugin`
+`npm install -D vue-loader`
 
-接著在 webpack.config.js 中指定複製 `public` 資料夾就可以了
+Vue Loader 同時也提供一個 `VueLoaderPlugin`，需要一起寫在 `webpack.config.js` 中。
 
-### Webpack Dev Server 如何存取靜態資源
-
-如同前面介紹過的，devServer 不會輸出打包後的檔案，而是將檔案暫時保留在內存中，那它怎麼知道要去哪裡找靜態資源呢？
-
-根據[官方文件](https://webpack.js.org/configuration/dev-server/#devserverstatic)，devServer 有一個 `static` 設定，可以指定伺服器要去哪裡取得靜態資源。
-devServer 預設會到 `public` 資料夾存取靜態資源，要注意的是這裡的 `public` 資料夾並不是我們現在資料夾中的那一個，而是打包後的 `public` 資料夾。
-所以如果我們的靜態資源並不是指定複製到 `public` 資料夾，這邊就要同時修改一下設定。
+設定好後就可以用熟悉的方式寫 `.vue` 檔了。

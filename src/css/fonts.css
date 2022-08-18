@@ -1,0 +1,20 @@
+@font-face {
+	font-family: 'Taipei Sans TC';
+	src: url('../fonts/TaipeiSansTCBeta-Regular.ttf');
+	font-weight: normal;
+}
+@font-face {
+	font-family: 'Taipei Sans TC';
+	src: url('../fonts/TaipeiSansTCBeta-Bold.ttf');
+	font-weight: bold;
+}
+@font-face {
+	font-family: 'Gen Sen Rounded';
+	src: url('../fonts/GenSenRounded-B.ttc');
+	font-weight: bold;
+}
+@font-face {
+	font-family: 'Gen Sen Rounded';
+	src: url('../fonts/GenSenRounded-R.ttc');
+	font-weight: normal;
+}
