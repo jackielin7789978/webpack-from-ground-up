@@ -9,10 +9,15 @@
 點開 /node_modules/vue/dist，你會看到裡面打包出好幾種不同版本的 vue，這邊簡單介紹一下他們的不同。
 
 `vue.global.js` → CDN 引入的版本，會導出一個全域的 `Vue`
+
 `vue.esm-browser.js` → 在瀏覽器用 `<script type=”module”>` 使用，會透過原生 ES module 導入
+
 `vue.esm-bundler.js` → 在打包工具中使用
+
 `vue.cjs.js` → server 端渲染使用 (node.js)
+
 加上 `runtime` → 使用 runtime 版本，沒有 compiler
+
 加上 `prod` → 使用 production 壓縮版本
 
 **webpack 預設使用 `vue.runtime.esm-bundler.js` (SFC 開發時使用)**
