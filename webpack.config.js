@@ -5,7 +5,7 @@ const { DefinePlugin } = require('webpack') // 引入 webpack 內建的方法
 const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-	mode: 'development', // 開發模式，不壓縮打包檔案
+	// mode: 'development', // 開發模式，不壓縮打包檔案
 	entry: './src/index.js', // 指定 webpack 打包入口點
 	output: {
 		filename: 'js/main.js', // 指定打包後的檔名
